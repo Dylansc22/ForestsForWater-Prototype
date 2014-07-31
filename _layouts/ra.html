@@ -1,0 +1,53 @@
+---
+title: Responsive App
+options: {}
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{page.title}}</title>
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link href='css/ra.css' rel='stylesheet' />
+  <link href='css/style.css' rel='stylesheet' />
+  <!--[if IE]>
+    <script src='js/classList.js'></script>
+    <![endif]-->
+  {% include _head_.html %}
+</head>
+<body>
+    <div id='ra-container' class='ra-large'>
+      <div id='ra-headmatter'>
+	{% include header.html %}
+      </div>
+      <div id='ra-responsivemenu' class='clearfix'>
+	<div id='ra-responsivemenu-btn-l' class='ra-btn'>
+	  {% include responsivemenu-btn-l.html %}
+	</div>
+	<div id='ra-responsivemenu-header'>
+	  {% include responsivemenu-header.html %}
+	</div>
+	<div id='ra-responsivemenu-btn-r' class='ra-btn'>
+	  {% include responsivemenu-btn-r.html %}
+	</div>
+      </div>
+      <div id='ra-main'>
+          {% include main-content.html %}
+      </div>
+      <div id='ra-panel-r'>
+	<div id='ra-panel-r-content'>
+	  {% include panel2-content.html %}
+	</div>
+      </div>
+      <div id='ra-panel-l'>
+	<div id='ra-panel-l-content'>
+	  {% include panel1-content.html %}
+	</div>
+      </div>
+      <div id='ra-cover' class='ra-hidden'></div>
+    </div>
+    <!--Initialize the responsive app framework!-->
+    <script src='js/ra.js'></script>
+    <script>ra = new ra({{page.options}});</script>
+</body>
+</html>

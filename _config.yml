@@ -1,0 +1,9 @@
+baseurl: '/responsive-app'
+permalink: pretty
+markdown: rdiscount
+
+stylus:
+  compress: False
+
+exclude: ['Gemfile','Gemfile.lock','makefile']
+

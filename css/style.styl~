@@ -1,0 +1,22 @@
+---
+---
+/* 
+ * Default styles 
+ * Edit this file to change styling
+ */
+
+/* css transitions */
+#ra-container
+  transition transform .5s
+  -webkit-transition -webkit-transform .5s
+#ra-nav-buttons
+  transition height .5s
+  -webkit-transition height .5s
+#ra-panel-l
+  background #eef
+#ra-panel-r
+  background #efe
+#ra-main
+  background #fee
+#ra-main-responsivemenu
+  background #eee
