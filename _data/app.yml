@@ -1,0 +1,108 @@
+content:
+  title: Forests for Water
+  fdw: 
+    head: Forests & Drinking Water
+    desc: Lands with the greatest potential impact on drinking water based on the erosion risk of the land, downstream population, and state of the forests.
+    inputs:
+      - id: fdw-r1
+        group: fdw-g1
+        type: radio
+        head: 1. Conservation priority areas
+        desc: Potential value to drinking water based on downstream population and erosion risk of currently forested areas
+        legend:
+          desc: 'Potential conservation value:'
+          low: Low
+          src: img/consval_legend.png
+          high: High
+      - id: fdw-r2
+        group: fdw-g1
+        type: radio
+        head: 2. Restoration priority areas
+        desc: Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration
+        legend:
+          desc: 'Potential restoration value:'
+          low: Low
+          src: img/consval_legend.png
+          high: High
+      - id: fdw-r3
+        group: fdw-g1
+        type: radio
+        head: 3. Erosion risk index
+        desc: Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff
+        legend:
+          src: img/consval_legend.png
+      - id: fdw-r4
+        group: fdw-g1
+        type: radio
+        head: 4. Population dependence index
+        desc: Relative importance of watershed based on the size and distance of downstream population
+        legend:
+          src: img/consval_legend.png
+      - id: fdw-c1
+        type: checkbox
+        head: Recent deforestation (2000-2012)
+      - id: fdw-c2
+        type: checkbox
+        head: Show protected areas
+      - id: fdw-c3
+        type: checkbox
+        head: Show major cities
+  fhp:
+    head: Forests & Hydropower
+    desc: Upstream erosion, often caused by deforestation or poor land conservation practices, can reduce the lifespan and profitability of hydropower plants.<br /><br />These indicators show how each major hydropower plant may be affected by upstream forests.
+    inputs:
+      - id: fhp-r1
+        group: fhp-g1
+        type: radio
+        head: 1. Upstream deforestation index
+        desc: Portion of upstream watershed which has been deforested since 2012, weighted by erosion risk.
+        legend:
+          desc: 'Recent forest loss:'
+          low: High
+          src: img/def_legend.png
+          high: Low
+      - id: fhp-r2
+        group: fhp-g1
+        type: radio
+        head: 2. Restoration potential index
+        desc: Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.
+        legend:
+          desc: 'Restoration potential:'
+          low: Low
+          src: img/def_legend.png
+          high: High
+      - id: fhp-c1
+        type: checkbox
+        head: Size hydro plants by capacity
+        legend:
+          src: img/def_legend.png
+      - id: fhp-r3
+        group: fhp-g2
+        type: radio
+        head: 3. Conservation priority areas
+        desc: Potential value to hydropower due to erosion risk of currently forested areas
+        legend:
+          desc: 'Potential conservation value:'
+          low: Low
+          src: img/def_legend.png
+          high: High
+      - id: fhp-r4
+        group: fhp-g2
+        type: radio
+        head: 4. Restoration priority areas
+        desc: Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.
+        legend:
+          desc: 'Potential restoration value:'
+          low: Low
+          src: img/def_legend.png
+          high: High
+      - id: fhp-r5
+        group: fhp-g2
+        type: radio
+        head: No baselayer
+      - id: fhp-c2
+        type: checkbox
+        head: Show protected areas
+      - id: fhp-c3
+        type: checkbox
+        head: Show major cities

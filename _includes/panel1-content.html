@@ -1,133 +1,54 @@
 <!--Place left panel content html here-->
 
 <div id='fdw-controls'>
-  <h3>Forests and Drinking Water</h3>
-  <p>
-    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
-  </p>
-  <input type='radio' id='fdw-r1' name='fdw-g1'></input>
-  <label for='fdw-r1' class='block-label'>
-    <div>
-      <h4>1. Conservation priority areas</h4>
-      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
-      <div class='show-when-checked'>
-	<p>Potential conservation value:</p>
-	Low <img /> High
-      </div>
-    </div>
-  </label>
-  <input type='radio' id='fdw-r2' name='fdw-g1'></input>
-  <label for='fdw-r2' class='block-label'>
-    <h4>2. Restoration priority areas</h4>
-    <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+  {% assign _ = site.data.app.content %}
+  <h3>{{_.fdw.head}}</h3>
+  <p>{{_.fdw.desc}}</p>
+  {% for r in _.fdw.inputs %}
+  <input type='{{r.type}}' id='{{r.id}}' name='{{r.group}}'></input>
+  <label for='{{r.id}}' {% if r.desc %}class='block-label'{% endif %}>
+    <h4>{{r.head}}</h4>
+    {% if r.desc %}
+    <p>{{r.desc}}</p>
+    {% endif %}
+    {% if r.legend %}
     <div class='show-when-checked'>
-      <p>Potential restoration value:</p>
-      Low <img /> High
+      <p>{{r.legend.desc}}</p>
+      {{r.legend.low}} 
+      <img src='{{r.legend.src}}' /> 
+      {{r.legend.high}}
     </div>
+    {% endif %}
   </label>
+  {% if r.id == 'fdw-r2' %}
   <hr />
   <h4>Additional layers</h4>
-  <input type='radio' id='fdw-r3' name='fdw-g1'></input>
-  <label for='fdw-r3' class='block-label'>
-    <h4>3. Erosion risk index</h4>
-    <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
-    <div class='show-when-checked'>
-      Low <img /> High
-    </div>
-  </label>
-  <input type='radio' id='fdw-r4' name='fdw-g1'></input>
-  <label for='fdw-r4' class='block-label'>
-    <h4>4. Population dependence index</h4>
-    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
-    <div class='show-when-checked'>
-      Low <img /> High
-    </div>
-  </label>
-  <input type='checkbox' id='fdw-c1'></input>
-  <label for='fdw-c1'>
-    <h4>Recent deforestation (2000-2012)</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
-  <input type='checkbox' id='fdw-c2'></input>
-  <label for='fdw-c2'>
-    <h4>Show protected areas</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
-  <input type='checkbox' id='fdw-c3'></input>
-  <label for='fdw-c3'>
-    <h4>Show major cities</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
+  {% endif %}
+  {% endfor %}
 </div>
 <div id='fhp-controls'>
-  <h3>Forests and Hydropower</h3>
-  <p>
-    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
-  </p>
-  <input type='radio' id='fhp-r1' name='fhp-g1'></input>
-  <label for='fhp-r1' class='block-label'>
-    <div>
-      <h4>1. Upstream deforestation index</h4>
-      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
-      <div class='show-when-checked'>
-	<p>Potential conservation value:</p>
-	Low <img /> High
-      </div>
-    </div>
-  </label>
-  <input type='radio' id='fhp-r2' name='fhp-g1'></input>
-  <label for='fhp-r2' class='block-label'>
-    <h4>2. Restoration potential index</h4>
-    <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+  <h3>{{_.fhp.head}}</h3>
+  <p>{{_.fhp.desc}}</p>
+  {% for r in _.fhp.inputs %}
+  <input type='{{r.type}}' id='{{r.id}}' name='{{r.group}}'></input>
+  <label for='{{r.id}}' {% if r.desc %}class='block-label'{% endif %}>
+    <h4>{{r.head}}</h4>
+    {% if r.desc %}
+    <p>{{r.desc}}</p>
+    {% endif %}
+    {% if r.legend %}
     <div class='show-when-checked'>
-      <p>Potential restoration value:</p>
-      Low <img /> High
+      <p>{{r.legend.desc}}</p>
+      {{r.legend.low}} 
+      <img src='{{r.legend.src}}' /> 
+      {{r.legend.high}}
     </div>
+    {% endif %}
   </label>
-  <input type='checkbox' id='fhp-c1'></input>
-  <label for='fhp-c1'>
-    <h4>Size hydro plants by capacity</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
+  {% if r.id == 'fhp-c1' %}
   <hr />
   <h4>Additional layers</h4>
-  <input type='radio' id='fhp-r3' name='fhp-g1'></input>
-  <label for='fhp-r3' class='block-label'>
-    <h4>3. Conservation priority areas</h4>
-    <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
-    <div class='show-when-checked'>
-      Low <img /> High
-    </div>
-  </label>
-  <input type='radio' id='fhp-r4' name='fhp-g1'></input>
-  <label for='fhp-r4' class='block-label'>
-    <h4>4. Restoration priority areas</h4>
-    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
-    <div class='show-when-checked'>
-      Low <img /> High
-    </div>
-  </label>
-  <input type='checkbox' id='fhp-c2'></input>
-  <label for='fhp-c2'>
-    <h4>Show protected areas</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
-  <input type='checkbox' id='fhp-c3'></input>
-  <label for='fhp-c3'>
-    <h4>Show major cities</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
-  </label>
+  {% endif %}
+  {% endfor %}
 </div>
 <!--End left panel content html-->

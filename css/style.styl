@@ -19,6 +19,7 @@
  */
 
 $green = #007a4d
+$lgreen = lighten($green, 10%)
 
 #ra-responsivemenu
   background $green
@@ -59,15 +60,19 @@ h4
   background $green
   color #fff
   font-weight bold
-  a:link, a:active, a:visited, a:hover, a:focus
+  a
     color #fff
     font-weight bold
+    .btn-active
+      background $lgreen
   .nav-left
     float left
     padding .5em
   .nav-right
     float right
     padding .5em
+
+
 
 #fdw-controls
 #fhp-controls
@@ -84,6 +89,7 @@ input[type="radio"] + label
   background-repeat no-repeat
   display inline-block
   border-radius .5em
+
         
 input[type="checkbox"] + label
   background-image url(../img/check_unchecked.png) 

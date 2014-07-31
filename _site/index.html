@@ -29,12 +29,12 @@
 </div>
 <div class='nav clearfix'>
   <a href='#'>
-    <div class='nav-left' id='nav-btn-1'>
+    <div class='nav-left' id='btn-fdw'>
       Forests & Drinking Water
     </div>
   </a>
   <a href='#'>
-    <div class='nav-left' id='nav-btn-2'>
+    <div class='nav-left' id='btn-fhp'>
       Forests & Hydropower
     </div>
   </a>
@@ -95,134 +95,220 @@ His at epicurei mandamus scripserit, mea ad iuvaret tacimates. Dolor melius taci
 	  <!--Place left panel content html here-->
 
 <div id='fdw-controls'>
-  <h3>Forests and Drinking Water</h3>
-  <p>
-    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
-  </p>
+  
+  <h3>Forests & Drinking Water</h3>
+  <p>Lands with the greatest potential impact on drinking water based on the erosion risk of the land, downstream population, and state of the forests.</p>
+  
   <input type='radio' id='fdw-r1' name='fdw-g1'></input>
   <label for='fdw-r1' class='block-label'>
-    <div>
-      <h4>1. Conservation priority areas</h4>
-      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
-      <div class='show-when-checked'>
-	<p>Potential conservation value:</p>
-	Low <img /> High
-      </div>
+    <h4>1. Conservation priority areas</h4>
+    
+    <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
+    
+    
+    <div class='show-when-checked'>
+      <p>Potential conservation value:</p>
+      Low 
+      <img src='img/consval_legend.png' /> 
+      High
     </div>
+    
   </label>
+  
+  
   <input type='radio' id='fdw-r2' name='fdw-g1'></input>
   <label for='fdw-r2' class='block-label'>
     <h4>2. Restoration priority areas</h4>
+    
     <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+    
+    
     <div class='show-when-checked'>
       <p>Potential restoration value:</p>
-      Low <img /> High
+      Low 
+      <img src='img/consval_legend.png' /> 
+      High
     </div>
+    
   </label>
+  
   <hr />
   <h4>Additional layers</h4>
+  
+  
   <input type='radio' id='fdw-r3' name='fdw-g1'></input>
   <label for='fdw-r3' class='block-label'>
     <h4>3. Erosion risk index</h4>
+    
     <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
+    
+    
     <div class='show-when-checked'>
-      Low <img /> High
+      <p></p>
+       
+      <img src='img/consval_legend.png' /> 
+      
     </div>
+    
   </label>
+  
+  
   <input type='radio' id='fdw-r4' name='fdw-g1'></input>
   <label for='fdw-r4' class='block-label'>
     <h4>4. Population dependence index</h4>
-    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
+    
+    <p>Relative importance of watershed based on the size and distance of downstream population</p>
+    
+    
     <div class='show-when-checked'>
-      Low <img /> High
+      <p></p>
+       
+      <img src='img/consval_legend.png' /> 
+      
     </div>
+    
   </label>
-  <input type='checkbox' id='fdw-c1'></input>
-  <label for='fdw-c1'>
+  
+  
+  <input type='checkbox' id='fdw-c1' name=''></input>
+  <label for='fdw-c1' >
     <h4>Recent deforestation (2000-2012)</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
+    
+    
   </label>
-  <input type='checkbox' id='fdw-c2'></input>
-  <label for='fdw-c2'>
+  
+  
+  <input type='checkbox' id='fdw-c2' name=''></input>
+  <label for='fdw-c2' >
     <h4>Show protected areas</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
+    
+    
   </label>
-  <input type='checkbox' id='fdw-c3'></input>
-  <label for='fdw-c3'>
+  
+  
+  <input type='checkbox' id='fdw-c3' name=''></input>
+  <label for='fdw-c3' >
     <h4>Show major cities</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
+    
+    
   </label>
+  
+  
 </div>
 <div id='fhp-controls'>
-  <h3>Forests and Hydropower</h3>
-  <p>
-    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
-  </p>
+  <h3>Forests & Hydropower</h3>
+  <p>Upstream erosion, often caused by deforestation or poor land conservation practices, can reduce the lifespan and profitability of hydropower plants.<br /><br />These indicators show how each major hydropower plant may be affected by upstream forests.</p>
+  
   <input type='radio' id='fhp-r1' name='fhp-g1'></input>
   <label for='fhp-r1' class='block-label'>
-    <div>
-      <h4>1. Upstream deforestation index</h4>
-      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
-      <div class='show-when-checked'>
-	<p>Potential conservation value:</p>
-	Low <img /> High
-      </div>
+    <h4>1. Upstream deforestation index</h4>
+    
+    <p>Portion of upstream watershed which has been deforested since 2012, weighted by erosion risk.</p>
+    
+    
+    <div class='show-when-checked'>
+      <p>Recent forest loss:</p>
+      High 
+      <img src='img/def_legend.png' /> 
+      Low
     </div>
+    
   </label>
+  
+  
   <input type='radio' id='fhp-r2' name='fhp-g1'></input>
   <label for='fhp-r2' class='block-label'>
     <h4>2. Restoration potential index</h4>
-    <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+    
+    <p>Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.</p>
+    
+    
     <div class='show-when-checked'>
-      <p>Potential restoration value:</p>
-      Low <img /> High
+      <p>Restoration potential:</p>
+      Low 
+      <img src='img/def_legend.png' /> 
+      High
     </div>
+    
   </label>
-  <input type='checkbox' id='fhp-c1'></input>
-  <label for='fhp-c1'>
+  
+  
+  <input type='checkbox' id='fhp-c1' name=''></input>
+  <label for='fhp-c1' >
     <h4>Size hydro plants by capacity</h4>
+    
+    
     <div class='show-when-checked'>
-      <img />
+      <p></p>
+       
+      <img src='img/def_legend.png' /> 
+      
     </div>
+    
   </label>
+  
   <hr />
   <h4>Additional layers</h4>
-  <input type='radio' id='fhp-r3' name='fhp-g1'></input>
+  
+  
+  <input type='radio' id='fhp-r3' name='fhp-g2'></input>
   <label for='fhp-r3' class='block-label'>
     <h4>3. Conservation priority areas</h4>
-    <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
+    
+    <p>Potential value to hydropower due to erosion risk of currently forested areas</p>
+    
+    
     <div class='show-when-checked'>
-      Low <img /> High
+      <p>Potential conservation value:</p>
+      Low 
+      <img src='img/def_legend.png' /> 
+      High
     </div>
+    
   </label>
-  <input type='radio' id='fhp-r4' name='fhp-g1'></input>
+  
+  
+  <input type='radio' id='fhp-r4' name='fhp-g2'></input>
   <label for='fhp-r4' class='block-label'>
     <h4>4. Restoration priority areas</h4>
-    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
+    
+    <p>Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.</p>
+    
+    
     <div class='show-when-checked'>
-      Low <img /> High
+      <p>Potential restoration value:</p>
+      Low 
+      <img src='img/def_legend.png' /> 
+      High
     </div>
+    
   </label>
-  <input type='checkbox' id='fhp-c2'></input>
-  <label for='fhp-c2'>
+  
+  
+  <input type='radio' id='fhp-r5' name='fhp-g2'></input>
+  <label for='fhp-r5' >
+    <h4>No baselayer</h4>
+    
+    
+  </label>
+  
+  
+  <input type='checkbox' id='fhp-c2' name=''></input>
+  <label for='fhp-c2' >
     <h4>Show protected areas</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
+    
+    
   </label>
-  <input type='checkbox' id='fhp-c3'></input>
-  <label for='fhp-c3'>
+  
+  
+  <input type='checkbox' id='fhp-c3' name=''></input>
+  <label for='fhp-c3' >
     <h4>Show major cities</h4>
-    <div class='show-when-checked'>
-      <img />
-    </div>
+    
+    
   </label>
+  
+  
 </div>
 <!--End left panel content html-->
 
