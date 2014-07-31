@@ -103,7 +103,7 @@ var ra = function(window, document) {
 	}
     },
 
-    ra = function (options) {
+    ra = function (options, callback) {
 	// DOM objects
 	var 
 	
@@ -351,6 +351,10 @@ var ra = function(window, document) {
 
 	// call setConfig and onResize to initialize display
 	setConfig(options);
+
+	if (callback != undefined) {
+	    callback()
+	};
     };
     
     return ra;

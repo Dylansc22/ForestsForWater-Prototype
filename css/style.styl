@@ -18,14 +18,102 @@
  * this can be very useful for styling
  */
 
+$green = #007a4d
 
-#ra-panel-l
-  background #eef
-#ra-panel-r
-  background #efe
-#ra-main
-  background #fee
 #ra-responsivemenu
-  background #eee
-#ra-headmatter
-  background #ffe
+  background $green
+  color #fff
+#ra-responsivemenu-btn-l
+  padding .5em
+#ra-responsivemenu-btn-r
+  padding .5em
+#ra-responsivemenu-header
+  padding .5em
+
+html, body
+  font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+  font-size 15px
+
+h1
+  font-size 2em
+  font-weight bold
+
+h2
+  font-size 1.5em
+  font-weight bold
+  
+h3
+  font-size 1.2em
+  font-weight bold
+
+h4
+  margin 0
+  font-weight bold
+
+.header
+  padding 0 .5em
+.logo-right
+  float right
+  maxwidth 250px
+.nav
+  background $green
+  color #fff
+  font-weight bold
+  a:link, a:active, a:visited, a:hover, a:focus
+    color #fff
+    font-weight bold
+  .nav-left
+    float left
+    padding .5em
+  .nav-right
+    float right
+    padding .5em
+
+#fdw-controls
+#fhp-controls
+  padding .5em
+
+input[type="checkbox"]
+input[type="radio"]
+  display none
+
+input[type="checkbox"] + label 
+input[type="radio"] + label
+  padding 12px .5em .5em 44px
+  background-position 0 0
+  background-repeat no-repeat
+  display inline-block
+  border-radius .5em
+        
+input[type="checkbox"] + label
+  background-image url(../img/check_unchecked.png) 
+input[type="radio"] + label
+  background-image url(../img/radio_unchecked.png)
+
+input[type="checkbox"]:checked + label
+  background-image url(../img/check_checked.png)
+input[type="radio"]:checked + label
+  background-image url(../img/radio_checked.png)  
+
+input[type="checkbox"]:checked + .block-label
+input[type="radio"]:checked + .block-label
+  background-color #eeeeee
+
+input[type="checkbox"]:disabled + label
+  background-image url(../img/check_disabled.png)
+input[type="radio"]:disabled + label
+  background-image url(../img/radio_disabled.png)
+
+input[type="radio"] + label 
+input[type="checkbox"] + label
+  .show-when-checked
+    display none
+
+input[type="radio"]:checked + label
+input[type="checkbox"]:checked + label
+  .show-when-checked
+    display initial
+
+#map
+  width 100%
+  height 100%

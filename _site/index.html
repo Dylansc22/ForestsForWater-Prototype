@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Responsive App</title>
+  <title>Forests for Water</title>
   <meta charset='UTF-8'/>
   <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no' />
   <link href='css/ra.css' rel='stylesheet' />
@@ -9,25 +9,54 @@
   <!--[if IE]>
     <script src='js/classList.js'></script>
     <![endif]-->
-  
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css' rel='stylesheet' />
+<script src='js/app.js'></script>
+
 </head>
 <body>
     <div id='ra-container' class='ra-large'>
       <div id='ra-headmatter'>
 	<!--Place header content here-->
-<h1>Header-text</h1>
+<div class='header'>
+  <h1>Forests for Water  
+    <div class='logo-right'>
+    <a href="http://wri.org">
+      <img src="img/wri-logo.png" />
+    </a>
+  </div>
+</h1>
+</div>
+<div class='nav clearfix'>
+  <a href='#'>
+    <div class='nav-left' id='nav-btn-1'>
+      Forests & Drinking Water
+    </div>
+  </a>
+  <a href='#'>
+    <div class='nav-left' id='nav-btn-2'>
+      Forests & Hydropower
+    </div>
+  </a>
+</div>
 <!--End header content-->
+
       </div>
       <div id='ra-responsivemenu' class='clearfix'>
 	<div id='ra-responsivemenu-btn-l' class='ra-btn'>
 	  <!--Place right panel show/hide button html here-->
-<h3> ☰ Panel1 </h3>
+<img src='img/menu-btn-white.png'></img>
 <!--End right panel show/hide button html-->
+
 	</div>
 	<div id='ra-responsivemenu-header'>
 	  <!--Place small screen header html here-->
-<h3> responsivemenu-header </h3>
+<div>
+  <img src='img/small-wri.png'></img>
+
+</div>
 <!--End small screen header html-->
+
 	</div>
 	<div id='ra-responsivemenu-btn-r' class='ra-btn'>
 	  <!--Place right panel show/hide button html here-->
@@ -38,19 +67,7 @@
       </div>
       <div id='ra-main'>
           <!--Insert main content here-->
-<h2>main-content</h2>
-
-<p>
-Lorem ipsum dolor sit amet, ne eum audiam impetus postulant, vix ut legimus vivendum pertinacia. Eu his legere qualisque, est ei regione labitur. Aliquip integre eu eum. An viderer utroque temporibus vis, quas menandri consectetuer eum cu. Per an illud persius suavitate. Postea corpora periculis eos ne.
-
-Eam ex iisque eligendi voluptatibus, ignota perfecto tincidunt pri id, te error feugiat fuisset mel. Sed ex luptatum pertinacia. His id habeo aliquid, at mei utamur docendi, debet omnes ignota mel ad. Cu ius vidit brute meliore, duo tollit splendide ei. Eos tale mutat essent in, congue petentium id quo. Nam modo habemus te, atqui albucius ut ius.
-
-Nonumy abhorreant has ut. Elit mazim gubergren ius ex. Sint munere volutpat ei eos. Id has option nostrud.
-
-Ad doctus tacimates est, eam malis equidem et, ne doming everti senserit eum. Ne sit nusquam propriae praesent, vidit virtute sea at. Partem postea delectus qui ad, quo unum eleifend inimicus cu, ex mea aliquando concludaturque. At soleat rationibus pro, mei ea persius facilisi periculis, no wisi voluptatibus mediocritatem pro.
-
-His at epicurei mandamus scripserit, mea ad iuvaret tacimates. Dolor melius tacimates ea eos, eu ius nobis constituto. Te vel eros quando aliquam, nisl mazim no vis. Albucius platonem nec id, mentitum vituperata ut cum, duo ferri eripuit in. Vim te impedit vituperata.
-</p>
+<div id='map'></div>
 <!-- End main content-->
 
       </div>
@@ -76,25 +93,145 @@ His at epicurei mandamus scripserit, mea ad iuvaret tacimates. Dolor melius taci
       <div id='ra-panel-l'>
 	<div id='ra-panel-l-content'>
 	  <!--Place left panel content html here-->
-<h2>Panel 1 content</h2>
-<p>
-Lorem ipsum dolor sit amet, ne eum audiam impetus postulant, vix ut legimus vivendum pertinacia. Eu his legere qualisque, est ei regione labitur. Aliquip integre eu eum. An viderer utroque temporibus vis, quas menandri consectetuer eum cu. Per an illud persius suavitate. Postea corpora periculis eos ne.
 
-Eam ex iisque eligendi voluptatibus, ignota perfecto tincidunt pri id, te error feugiat fuisset mel. Sed ex luptatum pertinacia. His id habeo aliquid, at mei utamur docendi, debet omnes ignota mel ad. Cu ius vidit brute meliore, duo tollit splendide ei. Eos tale mutat essent in, congue petentium id quo. Nam modo habemus te, atqui albucius ut ius.
-
-Nonumy abhorreant has ut. Elit mazim gubergren ius ex. Sint munere volutpat ei eos. Id has option nostrud.
-
-Ad doctus tacimates est, eam malis equidem et, ne doming everti senserit eum. Ne sit nusquam propriae praesent, vidit virtute sea at. Partem postea delectus qui ad, quo unum eleifend inimicus cu, ex mea aliquando concludaturque. At soleat rationibus pro, mei ea persius facilisi periculis, no wisi voluptatibus mediocritatem pro.
-
-His at epicurei mandamus scripserit, mea ad iuvaret tacimates. Dolor melius tacimates ea eos, eu ius nobis constituto. Te vel eros quando aliquam, nisl mazim no vis. Albucius platonem nec id, mentitum vituperata ut cum, duo ferri eripuit in. Vim te impedit vituperata.
-</p>
+<div id='fdw-controls'>
+  <h3>Forests and Drinking Water</h3>
+  <p>
+    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
+  </p>
+  <input type='radio' id='fdw-r1' name='fdw-g1'></input>
+  <label for='fdw-r1' class='block-label'>
+    <div>
+      <h4>1. Conservation priority areas</h4>
+      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
+      <div class='show-when-checked'>
+	<p>Potential conservation value:</p>
+	Low <img /> High
+      </div>
+    </div>
+  </label>
+  <input type='radio' id='fdw-r2' name='fdw-g1'></input>
+  <label for='fdw-r2' class='block-label'>
+    <h4>2. Restoration priority areas</h4>
+    <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+    <div class='show-when-checked'>
+      <p>Potential restoration value:</p>
+      Low <img /> High
+    </div>
+  </label>
+  <hr />
+  <h4>Additional layers</h4>
+  <input type='radio' id='fdw-r3' name='fdw-g1'></input>
+  <label for='fdw-r3' class='block-label'>
+    <h4>3. Erosion risk index</h4>
+    <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
+    <div class='show-when-checked'>
+      Low <img /> High
+    </div>
+  </label>
+  <input type='radio' id='fdw-r4' name='fdw-g1'></input>
+  <label for='fdw-r4' class='block-label'>
+    <h4>4. Population dependence index</h4>
+    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
+    <div class='show-when-checked'>
+      Low <img /> High
+    </div>
+  </label>
+  <input type='checkbox' id='fdw-c1'></input>
+  <label for='fdw-c1'>
+    <h4>Recent deforestation (2000-2012)</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+  <input type='checkbox' id='fdw-c2'></input>
+  <label for='fdw-c2'>
+    <h4>Show protected areas</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+  <input type='checkbox' id='fdw-c3'></input>
+  <label for='fdw-c3'>
+    <h4>Show major cities</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+</div>
+<div id='fhp-controls'>
+  <h3>Forests and Hydropower</h3>
+  <p>
+    Lands with the greatest potential impact on drinking water based on erosion risk of the land, downstream population, and state of the forests.
+  </p>
+  <input type='radio' id='fhp-r1' name='fhp-g1'></input>
+  <label for='fhp-r1' class='block-label'>
+    <div>
+      <h4>1. Upstream deforestation index</h4>
+      <p>Potential value to drinking water based on downstream population and erosion risk of currently forested areas</p>
+      <div class='show-when-checked'>
+	<p>Potential conservation value:</p>
+	Low <img /> High
+      </div>
+    </div>
+  </label>
+  <input type='radio' id='fhp-r2' name='fhp-g1'></input>
+  <label for='fhp-r2' class='block-label'>
+    <h4>2. Restoration potential index</h4>
+    <p>Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration</p>
+    <div class='show-when-checked'>
+      <p>Potential restoration value:</p>
+      Low <img /> High
+    </div>
+  </label>
+  <input type='checkbox' id='fhp-c1'></input>
+  <label for='fhp-c1'>
+    <h4>Size hydro plants by capacity</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+  <hr />
+  <h4>Additional layers</h4>
+  <input type='radio' id='fhp-r3' name='fhp-g1'></input>
+  <label for='fhp-r3' class='block-label'>
+    <h4>3. Conservation priority areas</h4>
+    <p>Erosion risk of land base on porosity, permiability, slope, land use intensity, and runoff</p>
+    <div class='show-when-checked'>
+      Low <img /> High
+    </div>
+  </label>
+  <input type='radio' id='fhp-r4' name='fhp-g1'></input>
+  <label for='fhp-r4' class='block-label'>
+    <h4>4. Restoration priority areas</h4>
+    <p>Relative importance of watershed based on the size and distance of downstream populations</p>
+    <div class='show-when-checked'>
+      Low <img /> High
+    </div>
+  </label>
+  <input type='checkbox' id='fhp-c2'></input>
+  <label for='fhp-c2'>
+    <h4>Show protected areas</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+  <input type='checkbox' id='fhp-c3'></input>
+  <label for='fhp-c3'>
+    <h4>Show major cities</h4>
+    <div class='show-when-checked'>
+      <img />
+    </div>
+  </label>
+</div>
 <!--End left panel content html-->
+
 	</div>
       </div>
       <div id='ra-cover' class='ra-hidden'></div>
     </div>
     <!--Initialize the responsive app framework!-->
     <script src='js/ra.js'></script>
-    <script>ra = new ra({});</script>
+    <script>ra = new ra( {panel2:false}, app );</script>
 </body>
 </html>
