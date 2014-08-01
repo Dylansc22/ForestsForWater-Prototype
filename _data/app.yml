@@ -10,7 +10,6 @@ content:
         head: 1. Conservation priority areas
         desc: Potential value to drinking water based on downstream population and erosion risk of currently forested areas
         legend:
-          desc: 'Potential conservation value:'
           low: Low
           src: img/consval_legend.png
           high: High
@@ -20,7 +19,6 @@ content:
         head: 2. Restoration priority areas
         desc: Potential value to drinking water based on downstream population and erosion risk of areas with opportunity for forest restoration
         legend:
-          desc: 'Potential restoration value:'
           low: Low
           src: img/consval_legend.png
           high: High
@@ -57,7 +55,6 @@ content:
         head: 1. Upstream deforestation index
         desc: Portion of upstream watershed which has been deforested since 2012, weighted by erosion risk.
         legend:
-          desc: 'Recent forest loss:'
           low: High
           src: img/def_legend.png
           high: Low
@@ -67,7 +64,6 @@ content:
         head: 2. Restoration potential index
         desc: Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.
         legend:
-          desc: 'Restoration potential:'
           low: Low
           src: img/def_legend.png
           high: High
@@ -82,7 +78,6 @@ content:
         head: 3. Conservation priority areas
         desc: Potential value to hydropower due to erosion risk of currently forested areas
         legend:
-          desc: 'Potential conservation value:'
           low: Low
           src: img/def_legend.png
           high: High
@@ -92,7 +87,6 @@ content:
         head: 4. Restoration priority areas
         desc: Portion of upstream watershed which has the opportunity to be restored, weighted by erosion risk.
         legend:
-          desc: 'Potential restoration value:'
           low: Low
           src: img/def_legend.png
           high: High

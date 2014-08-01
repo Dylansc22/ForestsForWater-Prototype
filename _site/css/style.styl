@@ -25,11 +25,13 @@ $lgreen = lighten($green, 10%)
   background $green
   color #fff
 #ra-responsivemenu-btn-l
-  padding .5em
-#ra-responsivemenu-btn-r
-  padding .5em
+  border-right rgba(0,0,0,.3) 1px solid
 #ra-responsivemenu-header
-  padding .5em
+  float right
+#ra-headmatter
+  -moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.20);
+  box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.20);
+  
 
 html, body
   font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -50,12 +52,20 @@ h3
 h4
   margin 0
   font-weight bold
+img
+  vertical-align middle
+hr
+  border none
+  margin 1em 0
+  height 1px
+  background #999999
 
 .header
   padding 0 .5em
 .logo-right
   float right
-  maxwidth 250px
+  margin-top -3px
+  vertical-align middle
 .nav
   background $green
   color #fff
@@ -63,15 +73,22 @@ h4
   a
     color #fff
     font-weight bold
+    text-decoration none
     .btn-active
       background $lgreen
   .nav-left
     float left
     padding .5em
+    //text-shadow 1px 1px rgba(0,0,0,.2)
   .nav-right
     float right
     padding .5em
 
+.ra-small .nav .nav-left
+  width auto
+  float none
+  margin .25em
+  border-radius 3px
 
 
 #fdw-controls

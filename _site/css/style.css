@@ -22,13 +22,14 @@
   color: #fff;
 }
 #ra-responsivemenu-btn-l {
-  padding: 0.5em;
-}
-#ra-responsivemenu-btn-r {
-  padding: 0.5em;
+  border-right: rgba(0,0,0,0.3) 1px solid;
 }
 #ra-responsivemenu-header {
-  padding: 0.5em;
+  float: right;
+}
+#ra-headmatter {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
 }
 html,
 body {
@@ -51,12 +52,22 @@ h4 {
   margin: 0;
   font-weight: bold;
 }
+img {
+  vertical-align: middle;
+}
+hr {
+  border: none;
+  margin: 1em 0;
+  height: 1px;
+  background: #999;
+}
 .header {
   padding: 0 0.5em;
 }
 .logo-right {
   float: right;
-  maxwidth: 250px;
+  margin-top: -3px;
+  vertical-align: middle;
 }
 .nav {
   background: #007a4d;
@@ -66,6 +77,7 @@ h4 {
 .nav a {
   color: #fff;
   font-weight: bold;
+  text-decoration: none;
 }
 .nav a .btn-active {
   background: #00a165;
@@ -77,6 +89,12 @@ h4 {
 .nav .nav-right {
   float: right;
   padding: 0.5em;
+}
+.ra-small .nav .nav-left {
+  width: auto;
+  float: none;
+  margin: 0.25em;
+  border-radius: 3px;
 }
 #fdw-controls,
 #fhp-controls {
