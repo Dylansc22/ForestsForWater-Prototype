@@ -92,7 +92,7 @@ var app = function() {
     set_hash = function(obj, opts, bools) {
 	var boolstr = '', hash = '#';
 	for (var i in bools) {
-	    if (opts[bools[i]]!==undefined) {
+	    if (obj[bools[i]]!==undefined) {
 		boolstr += (obj[bools[i]]?1:0);
 	    } else {
 		boolstr += '0'
@@ -180,7 +180,7 @@ var app = function() {
 	fdw_layers = [],
 	fhp_layers = [],
 
-	hash_opts = ['mapCenter','mapZoom'],
+	hash_opts = ['c','z'],
 
 	hash_bools = ['btn_fdw',
 		 'btn_fhp',
@@ -200,7 +200,10 @@ var app = function() {
 		 'chk_fhp3'],
 
 
-	status = read_hash(hash_opts, hash_bools),
+	status = {
+	    z:4,
+	    c:[40,10]
+	},
 
 	map = L.map('map', {
             maxZoom: 15
@@ -246,9 +249,9 @@ var app = function() {
 	},
 	
 	read_map_status = function(e) {
-	    update_status({mapCenter:[map.getCenter().lat,
+	    update_status({c:[map.getCenter().lat,
 				      map.getCenter().lng],
-			   mapZoom:map.getZoom()},
+			   z:map.getZoom()},
 			  true);
 	},
 
@@ -304,11 +307,11 @@ var app = function() {
 	    };
 	},
 	update_map = function() {
-	    if (typeof(status.mapCenter) === 'string') {
-		status.mapCenter = status.mapCenter.split(',');
-		    };
-	    map.setZoom(status.mapZoom);
-	    map.panTo(status.mapCenter);
+	    if (typeof(status.c) === 'string') {
+		status.c = status.c.split(',');
+	    };
+	    map.setZoom(status.z);
+	    map.panTo(status.c);
 	};
 	
 	map.on({click:get_watershed,
@@ -323,10 +326,9 @@ var app = function() {
 	bind(btn_fdw,'click',select_fdw);	
 	bind(btn_fhp,'click',select_fhp);
 
-	// initialize app on first panel
+	update_status(read_hash(hash_opts, hash_bools));
+	(!status.btn_fhp) ? select_fdw() : select_fhp();
 	update_map();
-	
-	select_fdw();
     };
     
     init();
