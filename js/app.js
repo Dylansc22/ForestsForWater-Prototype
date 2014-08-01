@@ -222,7 +222,7 @@ var app = function() {
 		btn_fhp:true});
 	},
 
-	update_layers = function(force=false) {
+	update_layers = function(force) {
 	    if (status.btn_fdw) {
 		// drinking water panel active
 		for(var l in fhp_layers) {
