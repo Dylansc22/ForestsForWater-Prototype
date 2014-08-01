@@ -1,0 +1,32 @@
+<style>
+#insec-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+#insec-inputbox {
+    position: relative;
+    padding: 24px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    background: #eeeeee;
+}
+</style>
+<div id='insec-block'>
+  <div id='insec-inputbox'>
+    <h2>Please enter password to continue</h2>
+    <input type='password' id='insec-pass'></input>
+    <input type='submit' id='insec-submit' value='Ok'></input>
+  </div>
+</div>
+<script src='js/insec.js'></script>
+<script>insec = new insec(0x0B88BC37,1)</script>

@@ -74,12 +74,7 @@ hr {
   color: #fff;
   font-weight: bold;
 }
-.nav a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
-.nav a .btn-active {
+.nav .btn-active {
   background: #00a165;
 }
 .nav .nav-left {

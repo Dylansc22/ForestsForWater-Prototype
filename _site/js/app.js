@@ -89,12 +89,53 @@ var app = function() {
 	return numeric+'px';
     },
 
-    
-    status = {},
+    set_hash = function(obj, opts, bools) {
+	var boolstr = '', hash = '#';
+	for (var i in bools) {
+	    if (opts[bools[i]]!==undefined) {
+		boolstr += (obj[bools[i]]?1:0);
+	    } else {
+		boolstr += '0'
+	    };
+	};
+	for (var i in opts) {
+	    if (obj[opts[i]]!==undefined) {
+		hash += opts[i] + '=' + obj[opts[i]] + '&';
+	    };
+	};
+	hash += 'b=' + boolstr;
+	window.location.hash = hash;
+    },
+    read_hash = function(opts, bools) {
+	var 
+	hash = window.location.hash.slice(1),
+	arr = hash.split('&'),
+	pairs = {},
+	out = {},
+	kv;
+
+	for (var i in arr) {
+	    kv = arr[i].split("=");
+	    pairs[kv[0]] = kv[1];
+	};
+	for (var i in opts) {
+	    if (pairs[opts[i]] !== undefined) {
+		out[opts[i]] = (isNaN(pairs[opts[i]])?
+				pairs[opts[i]]:
+				+pairs[opts[i]]);
+	    };
+	};
+	if(pairs['b'] !== undefined) {
+	    for (var i=0;i<pairs['b'].length;i++) {
+		if (pairs['b'][i]=='1') out[bools[i]]=1;
+		if (pairs['b'][i]=='0') out[bools[i]]=0;
+	    };
+	};	
+	return out;
+    },
+
 
     init = function () {
-	
-
 	var 
 
 	btn_fdw = byId('btn-fdw'),
@@ -114,6 +155,10 @@ var app = function() {
 	chk_fhp2 = byId('fhp-c2'),
 	chk_fhp3 = byId('fhp-c3'),
 	
+	div_map = byId('map'),
+	div_fdw = byId('fdw-controls'),
+	div_fhp = byId('fhp-controls'),
+
 	ctrls = [
 	    btn_fdw,
 	    btn_fhp,
@@ -132,13 +177,32 @@ var app = function() {
 	    chk_fhp2,
 	    chk_fhp3],
 
-	div_map = byId('map'),
-	div_fdw = byId('fdw-controls'),
-	div_fhp = byId('fhp-controls'),
+	fdw_layers = [],
+	fhp_layers = [],
+
+	hash_opts = ['mapCenter','mapZoom'],
+
+	hash_bools = ['btn_fdw',
+		 'btn_fhp',
+		 'rdo_fdw1',
+		 'rdo_fdw2',
+		 'rdo_fdw3',
+		 'rdo_fdw4',
+		 'chk_fdw1',
+		 'chk_fdw2',
+		 'chk_fdw3',
+		 'rdo_fhp1',
+		 'rdo_fhp2',
+		 'rdo_fhp3',
+		 'rdo_fhp4',
+		 'chk_fhp1',
+		 'chk_fhp2',
+		 'chk_fhp3'],
+
+
+	status = read_hash(hash_opts, hash_bools),
 
 	map = L.map('map', {
-	    center: status.mapCenter || [40, 10],
-	    zoom: status.mapZoom || 4,
             maxZoom: 15
 	}),
 
@@ -168,22 +232,22 @@ var app = function() {
 	},
 
 	update_status = function(opts, skip_update) {
-	    var dirty = false;
 	    if (typeof(opts) === 'object') {
 		for (var key in opts) {
 		    if (status[key] != opts[key]) {
 			status[key] = opts[key];
-			dirty = true;
 		    };
 		};
 	    };
-	    if (dirty && !skip_update) {
+	    set_hash(status, hash_opts, hash_bools);
+	    if (!skip_update) {
 		update_layers();
 	    };
 	},
 	
 	read_map_status = function(e) {
-	    update_status({mapCenter:map.getCenter(),
+	    update_status({mapCenter:[map.getCenter().lat,
+				      map.getCenter().lng],
 			   mapZoom:map.getZoom()},
 			  true);
 	},
@@ -238,9 +302,15 @@ var app = function() {
 		removeC(div_fhp,'ra-hidden');
 		addC(div_fdw,'ra-hidden');
 	    };
+	},
+	update_map = function() {
+	    if (typeof(status.mapCenter) === 'string') {
+		status.mapCenter = status.mapCenter.split(',');
+		    };
+	    map.setZoom(status.mapZoom);
+	    map.panTo(status.mapCenter);
 	};
 	
-
 	map.on({click:get_watershed,
 		moveend:read_map_status,
 		zoomend:read_map_status});
@@ -254,6 +324,8 @@ var app = function() {
 	bind(btn_fhp,'click',select_fhp);
 
 	// initialize app on first panel
+	update_map();
+	
 	select_fdw();
     };
     
