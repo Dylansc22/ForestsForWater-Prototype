@@ -214,6 +214,8 @@ var app = function() {
 
 	base = L.tileLayer('http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {}).addTo(map),
 	
+	story = L.control.story(),
+	
 	watershed = L.mapbox.featureLayer().addTo(map),
 	  
 	apiurl = 'http://54.86.253.5/',
@@ -310,14 +312,20 @@ var app = function() {
 	    if (typeof(status.c) === 'string') {
 		status.c = status.c.split(',');
 	    };
-	    map.setZoom(status.z);
-	    map.panTo(status.c);
+	    map.setView(status.c, status.z);
 	};
 	
 	map.on({click:get_watershed,
 		moveend:read_map_status,
 		zoomend:read_map_status});
 	watershed.on({click:show_download});
+
+	story.addSlide('This is a slide with an image <img src="img/WRI_sm_black.png"/>');
+	story.addSlide('<h3>Slide 2</h3>This is a slide that zooms and pans the map to [40,-80]',{
+	    zoom:10, center:[40,-80]});
+	story.addSlide('<h3>Slide 3</h3>This is a slide that zooms and pans the map to [40,-81] slowly',{
+	    zoom:10, center:[40,-81], panDuration:1});
+	story.addTo(map);
 
 	bind(div_map,'ra-screenchange',map.invalidateSize);
 	for(var i in ctrls) {
